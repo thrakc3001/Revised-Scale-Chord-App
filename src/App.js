@@ -13,35 +13,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      ascales: [],
-      bbscales: [],
-      bscales: [],
-      cscales: [],
-      csscales: [],
-      dscales: [],
-      ebscales: [],
-      escales: [],
-      fscales: [],
-      fsscales: [],
-      gscales: [],
-      gsscales: [],
-      achords: [],
-      bbchords: [],
-      bchords: [],
-      cchords: [],
-      cschords: [],
-      dchords: [],
-      ebchords: [],
-      echords: [],
-      fchords: [],
-      fschords: [],
-      gchords: [],
-      abchords: [],
-      scaleKeys: [],
-      chordKeys: []
+      ascales: [], bbscales: [], bscales: [], cscales: [], csscales: [], dscales: [], 
+      ebscales: [], escales: [], fscales: [], fsscales: [], gscales: [], gsscales: [],
+      achords: [], bbchords: [], bchords: [], cchords: [], cschords: [], dchords: [],
+      ebchords: [], echords: [], fchords: [], fschords: [], gchords: [], abchords: [],
+      scaleKeys: [], chordKeys: [],
+      currentMenu: -1
     };
   }
-
 
   componentDidMount() {
     this.getData();
@@ -79,8 +58,11 @@ class App extends Component {
     });
   }
 
-  handleClick() {
-
+  handleClick(showButton) {
+    if (this.state.currentMenu === showButton)
+      this.setState({currentMenu : -1});
+    else
+      this.setState({currentMenu : showButton});
   }
 
 
@@ -123,11 +105,7 @@ class App extends Component {
     let btnContainer = {
     }
 
-    // for (var i = 0; i < scaleskeys.length; i++) {
-    //   let ascaleBtn = this.state.ascales.map((result, i) => (
-    //     <button key={i} style={scaleStyles}>{result}</button>
-    //   ))
-    // }
+    // REFACTOR RENDERING OF BUTTONS
 
     let ascaleBtn = this.state.ascales.map((result, i) => (
       <button key={i} style={scaleStyles}>{result}</button>
@@ -181,6 +159,7 @@ class App extends Component {
 
     let achordBtn = this.state.achords.map((result, i) => (
       <button key={i} style={chordStyles}>{result}</button>
+      // <button key={i} style={{display: this.state.currentMenu === 1 ? 'flex' : 'none'}}>{result}</button>
     ))
 
     let bbchordBtn = this.state.bbchords.map((result, i) => (
@@ -227,6 +206,12 @@ class App extends Component {
       <button key={i} style={chordStyles}>{result}</button>
     ))
 
+    let allChords = [achordBtn, bbchordBtn, bchordBtn, cchordBtn, cschordBtn, dchordBtn, 
+                    ebchordBtn, echordBtn, fchordBtn, fschordBtn, gchordBtn, abchordBtn];
+
+    let allScales = [ascaleBtn, bbscaleBtn, bscaleBtn, cscaleBtn, csscaleBtn, dscaleBtn,
+                    ebscaleBtn, escaleBtn, fscaleBtn, fsscaleBtn, gscaleBtn, gsscaleBtn];
+
 
 
     let scaleKeysBtn = this.state.scaleKeys.map((result, i) => (
@@ -234,7 +219,7 @@ class App extends Component {
     ))
 
     let chordKeysBtn = this.state.chordKeys.map((result, i) => (
-      <button key={i} style={keyStyles} onClick={ () => {this.handleClick()} }>{result}</button>
+      <button key={i} style={keyStyles} onClick={ () => {this.handleClick(i)} }>{result}</button>
     ))
     
     return (
@@ -243,31 +228,9 @@ class App extends Component {
         <div style={btnContainer}>
           <div style={keyContainer}>{scaleKeysBtn}</div>
           <div style={keyContainer}>{chordKeysBtn}</div>
-          {ascaleBtn}
-          {bbscaleBtn}
-          {bscaleBtn}
-          {cscaleBtn}
-          {csscaleBtn}
-          {dscaleBtn}
-          {ebscaleBtn}
-          {escaleBtn}
-          {fscaleBtn}
-          {fsscaleBtn}
-          {gscaleBtn}
-          {gsscaleBtn}
-          {achordBtn}
-          {bbchordBtn}
-          {bchordBtn}
-          {cchordBtn}
-          {cschordBtn}
-          {dchordBtn}
-          {ebchordBtn}
-          {echordBtn}
-          {fchordBtn}
-          {fschordBtn}
-          {gchordBtn}
-          {abchordBtn}
         </div>
+        {allScales}
+        {allChords}
       </div>
     );
   }
