@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './css/App.css';
 import * as firebase from 'firebase';
 let config = {
     apiKey: "AIzaSyAqdmIXzFsSxJ2x508PrWIL3xqxNbpmZuM",
@@ -13,37 +14,34 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      ascales: [], bbscales: [], bscales: [], cscales: [], csscales: [], dscales: [], 
-      ebscales: [], escales: [], fscales: [], fsscales: [], gscales: [], gsscales: [],
-      achords: [], bbchords: [], bchords: [], cchords: [], cschords: [], dchords: [],
-      ebchords: [], echords: [], fchords: [], fschords: [], gchords: [], abchords: [],
-      scaleKeys: [], chordKeys: [],
+      scales: [],
+      chords: [],
+      scaleKeys: [],
+      chordKeys: [],
       currentMenu: -1
     };
   }
+
 
   componentDidMount() {
     this.getData();
   }
 
-  getData() {
-    let scaleskeys = ['a', 'bb', 'b', 'c', 'cs', 'd', 'eb', 'e', 'f', 'fs', 'g', 'gs'];
-    for (var i = 0; i < scaleskeys.length; i++) {
-      let keyscales = scaleskeys[i] + 'scales';
-      firebase.database().ref().child(keyscales).on('value', snapshot => {
-        let stateObject = {[keyscales] : snapshot.val()};
-        this.setState(stateObject)
-      });
-    }
 
-    let chordskeys = ['a', 'bb', 'b', 'c', 'cs', 'd', 'eb', 'e', 'f', 'fs', 'g', 'ab'];
-    for (var j = 0; j < chordskeys.length; j++) {
-      let keychords = chordskeys[j] + 'chords';
-      firebase.database().ref().child(keychords).on('value', snapshot => {
-        let stateObject = {[keychords] : snapshot.val()};
-        this.setState(stateObject)
-      });
-    }
+  getData() {
+
+    firebase.database().ref().child('scales').on('value', snapshot => {
+      this.setState({
+        scales : snapshot.val()
+      })
+    });
+
+    firebase.database().ref().child('chords').on('value', snapshot => {
+      this.setState({
+        chords : snapshot.val()
+      })
+    });
+
 
     firebase.database().ref().child('scalekeys').on('value', snapshot => {
       this.setState({
@@ -58,179 +56,84 @@ class App extends Component {
     });
   }
 
-  handleClick(showButton) {
-    if (this.state.currentMenu === showButton)
+  menuToggle(newSelection) {
+    if (this.state.currentMenu === newSelection)
       this.setState({currentMenu : -1});
     else
-      this.setState({currentMenu : showButton});
+      this.setState({currentMenu : newSelection});
   }
 
 
   render() {
 
-    let scaleStyles = {
-      width: '90px',
-      height: '15px',
-      fontSize: '8px',
-      display: 'none'
+    let scaleBtn = this.state.scales.map((result, i) => (
+        <button key={i}>{result}</button>
+      ))
+
+    let aScales = []; let bbScales = []; let bScales = []; let cScales = []; let csScales = []; let dScales = []; 
+    let ebScales = []; let eScales = []; let fScales = []; let fsScales = []; let gScales = []; let gsScales = [];
+
+    let allScales = [aScales, bbScales, bScales, cScales, csScales, dScales, ebScales, eScales, fScales, fsScales, gScales, gsScales];
+
+    let l = 1;
+    let m = 11;
+    for (var h = 0; h < allScales.length; h++) {
+      for (var i = l; i < m; i++) {
+        allScales[h].push(scaleBtn[i]);
+      }
+      l += 10;
+      m += 10;
     }
 
-    let chordStyles = {
-      width: '90px',
-      height: '15px',
-      fontSize: '8px',
-      display: 'none'
+    let chordBtn = this.state.chords.map((result, i) => (
+      <button key={i}>{result}</button>
+    ))
+
+    let aChords = []; let bbChords = []; let bChords = []; let cChords = []; let csChords = []; let dChords = []; 
+    let ebChords = []; let eChords = []; let fChords = []; let fsChords = []; let gChords = []; let abChords = [];
+
+    let allChords = [aChords, bbChords, bChords, cChords, csChords, dChords, ebChords, eChords, fChords, fsChords, gChords, abChords];
+
+    let o = 1;
+    let p = 17;
+    for (var j = 0; j < allChords.length; j++) {
+      for (var k = o; k < p; k++) {
+        allChords[j].push(chordBtn[k]);
+      }
+      o += 16;
+      p += 16;
     }
-
-    let keyStyles = {
-      width: '115px',
-      height: '30px',
-      fontSize: '8px',
-      display: 'flex',
-      justifyContent: 'center',
-      margin: '0 auto'
-    }
-
-    let keyContainer = {
-      display: 'flex',
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      width: '32%',
-      justifyContent: 'center',
-      margin: '0 auto',
-      height: '128px',
-      paddingBottom: '5px'
-    }
-
-    let btnContainer = {
-    }
-
-    // REFACTOR RENDERING OF BUTTONS
-
-    let ascaleBtn = this.state.ascales.map((result, i) => (
-      <button key={i} style={scaleStyles}>{result}</button>
-    ))
-
-    let bbscaleBtn = this.state.bbscales.map((result, i) => (
-      <button key={i} style={scaleStyles}>{result}</button>
-    ))
-
-    let bscaleBtn = this.state.bscales.map((result, i) => (
-      <button key={i} style={scaleStyles}>{result}</button>
-    ))
-
-    let cscaleBtn = this.state.cscales.map((result, i) => (
-      <button key={i} style={scaleStyles}>{result}</button>
-    ))
-
-    let csscaleBtn = this.state.csscales.map((result, i) => (
-      <button key={i} style={scaleStyles}>{result}</button>
-    ))
-
-    let dscaleBtn = this.state.dscales.map((result, i) => (
-      <button key={i} style={scaleStyles}>{result}</button>
-    ))
-
-    let ebscaleBtn = this.state.ebscales.map((result, i) => (
-      <button key={i} style={scaleStyles}>{result}</button>
-    ))
-
-    let escaleBtn = this.state.escales.map((result, i) => (
-      <button key={i} style={scaleStyles}>{result}</button>
-    ))
-
-    let fscaleBtn = this.state.fscales.map((result, i) => (
-      <button key={i} style={scaleStyles}>{result}</button>
-    ))
-
-    let fsscaleBtn = this.state.fsscales.map((result, i) => (
-      <button key={i} style={scaleStyles}>{result}</button>
-    ))
-
-    let gscaleBtn = this.state.gscales.map((result, i) => (
-      <button key={i} style={scaleStyles}>{result}</button>
-    ))
-
-    let gsscaleBtn = this.state.gsscales.map((result, i) => (
-      <button key={i} style={scaleStyles}>{result}</button>
-    ))
-
-
-
-    let achordBtn = this.state.achords.map((result, i) => (
-      <button key={i} style={chordStyles}>{result}</button>
-      // <button key={i} style={{display: this.state.currentMenu === 1 ? 'flex' : 'none'}}>{result}</button>
-    ))
-
-    let bbchordBtn = this.state.bbchords.map((result, i) => (
-      <button key={i} style={chordStyles}>{result}</button>
-    ))
-
-    let bchordBtn = this.state.bchords.map((result, i) => (
-      <button key={i} style={chordStyles}>{result}</button>
-    ))
-
-    let cchordBtn = this.state.cchords.map((result, i) => (
-      <button key={i} style={chordStyles}>{result}</button>
-    ))
-
-    let cschordBtn = this.state.cschords.map((result, i) => (
-      <button key={i} style={chordStyles}>{result}</button>
-    ))
-
-    let dchordBtn = this.state.dchords.map((result, i) => (
-      <button key={i} style={chordStyles}>{result}</button>
-    ))
-
-    let ebchordBtn = this.state.ebchords.map((result, i) => (
-      <button key={i} style={chordStyles}>{result}</button>
-    ))
-
-    let echordBtn = this.state.echords.map((result, i) => (
-      <button key={i} style={chordStyles}>{result}</button>
-    ))
-
-    let fchordBtn = this.state.fchords.map((result, i) => (
-      <button key={i} style={chordStyles}>{result}</button>
-    ))
-
-    let fschordBtn = this.state.fschords.map((result, i) => (
-      <button key={i} style={chordStyles}>{result}</button>
-    ))
-
-    let gchordBtn = this.state.gchords.map((result, i) => (
-      <button key={i} style={chordStyles}>{result}</button>
-    ))
-
-    let abchordBtn = this.state.abchords.map((result, i) => (
-      <button key={i} style={chordStyles}>{result}</button>
-    ))
-
-    let allChords = [achordBtn, bbchordBtn, bchordBtn, cchordBtn, cschordBtn, dchordBtn, 
-                    ebchordBtn, echordBtn, fchordBtn, fschordBtn, gchordBtn, abchordBtn];
-
-    let allScales = [ascaleBtn, bbscaleBtn, bscaleBtn, cscaleBtn, csscaleBtn, dscaleBtn,
-                    ebscaleBtn, escaleBtn, fscaleBtn, fsscaleBtn, gscaleBtn, gsscaleBtn];
 
 
 
     let scaleKeysBtn = this.state.scaleKeys.map((result, i) => (
-      <button key={i} style={keyStyles}>{result}</button>
+      <button key={i} className='keyStyles' onClick={ () => {this.menuToggle(i)} }>{result}</button>
     ))
 
     let chordKeysBtn = this.state.chordKeys.map((result, i) => (
-      <button key={i} style={keyStyles} onClick={ () => {this.handleClick(i)} }>{result}</button>
+      <button key={i} className='keyStyles' onClick={ () => {this.menuToggle(i+12)} }>{result}</button>
     ))
-    
+
+    let allSclBtns = [];
+    for (var q = 0; q < 12; q++) {
+      allSclBtns.push(<div key={q} className='allSclBtns' style={{display: this.state.currentMenu === q + 1 ? 'flex' : 'none'}}>{allScales[q]}</div>);
+    }
+
+    let allChoBtns = [];
+    for (var r = 0; r < 12; r++) {
+      allChoBtns.push(<div key={r} className='allChoBtns' style={{display: this.state.currentMenu === r + 13 ? 'flex' : 'none'}}>{allChords[r]}</div>);
+    }
+
+
     return (
       <div>
-        <h1 style={{textAlign: 'center'}}>Scales and Chords</h1>
-        <div style={btnContainer}>
-          <div style={keyContainer}>{scaleKeysBtn}</div>
-          <div style={keyContainer}>{chordKeysBtn}</div>
+        <h1>Scales and Chords</h1>
+        <div className='btnContainer'>
+          <div className='keyContainer'>{scaleKeysBtn}</div>
+          <div className='keyContainer'>{chordKeysBtn}</div>
         </div>
-        {allScales}
-        {allChords}
+        {allSclBtns}
+        {allChoBtns}
       </div>
     );
   }
