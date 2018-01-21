@@ -2,8 +2,9 @@ h1 {
   text-align: center;
 }
 
-.buttonContainer {
-  
+.btnContainer {
+
+
 }
 
 .allSclBtns {
@@ -24,7 +25,7 @@ h1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 32%;
+  width: 218px;
   justify-content: center;
   margin: 0 auto;
   height: 128px;
@@ -32,10 +33,106 @@ h1 {
 }
 
 .keyStyles {
-  width: 115px;
+  width: 70px;
   height: 30px;
   font-size: 8px;
   display: flex;
   justify-content: center;
   margin: 0 auto;
+}
+
+.A.Scales {
+
+}
+
+.Bb.Scales {
+
+}
+
+.B.Scales {
+
+}
+
+.C.Scales {
+
+}
+
+.C\#.Scales {
+
+}
+
+.D.Scales {
+
+}
+
+.Eb.Scales {
+
+}
+
+.E.Scales {
+
+}
+
+.F.Scales {
+
+}
+
+.F\#.Scales {
+
+}
+
+.G.Scales {
+
+}
+
+.G\#.Scales {
+
+}
+
+.A.Chords {
+
+}
+
+.Bb.Chords {
+
+}
+
+.B.Chords {
+
+}
+
+.C.Chords {
+
+}
+
+.C\#.Chords {
+
+}
+
+.D.Chords {
+
+}
+
+.Eb.Chords {
+
+}
+
+.E.Chords {
+
+}
+
+.F.Chords {
+
+}
+
+.F\#.Chords {
+
+}
+
+.G.Chords {
+
+}
+
+.Ab.Chords {
+
 }
