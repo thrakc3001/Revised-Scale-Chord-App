@@ -18,24 +18,34 @@ class App extends Component {
       chords: [],
       scalekeys: [],
       chordkeys: [],
-      currentMenu: -1
+      currentMenu: -1,
+      images: []
     };
   }
 
 
   componentDidMount() {
-    let checking = ['scales', 'chords', 'scalekeys', 'chordkeys'];
-    for (var s = 0; s < checking.length; s++) {
-      this.getData(checking[s]);
+    let datas = ['scales', 'chords', 'scalekeys', 'chordkeys'];
+    for (var s = 0; s < datas.length; s++) {
+      this.getData(datas[s]);
+    }
+
+    for (var t = 1; t < 3; t++) {
+      this.getStorage(t);
     }
   }
 
 
   getData(data) {
-
     firebase.database().ref().child(data).on('value', snapshot => {
       let stateObject = {[data] : snapshot.val()};
       this.setState(stateObject);
+    });
+  }
+  // SOMEHOW GET THIS FUCKING URL OUTSIDE THIS FUNCTION WITHOUT USING AN ARRAY
+  getStorage(data) {
+    firebase.storage().ref().child(`images/${data}.png`).getDownloadURL().then(function(url) {
+      console.log(url);
     });
   }
 
@@ -101,6 +111,7 @@ class App extends Component {
     return (
       <div>
         <h1>Scales and Chords</h1>
+        <img src={this.state.images} alt='png'/>
         <div className='btnContainer'>
           <div className='keyContainer'>{scaleKeysBtn}</div>
           <div className='keyContainer'>{chordKeysBtn}</div>
