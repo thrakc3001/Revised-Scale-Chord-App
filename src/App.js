@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './css/App.css';
 import * as firebase from 'firebase';
+
 let config = {
     apiKey: "AIzaSyAqdmIXzFsSxJ2x508PrWIL3xqxNbpmZuM",
     authDomain: "scales-and-chords-3001.firebaseapp.com",
@@ -11,16 +12,18 @@ let config = {
   };
 firebase.initializeApp(config);
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       scales: [],
       chords: [],
       scalekeys: [],
       chordkeys: [],
       currentMenu: -1,
-      images: []
+      URLs: []
     };
+
+    this.getStorage = this.getStorage.bind(this);
   }
 
 
@@ -31,7 +34,7 @@ class App extends Component {
     }
 
     for (var t = 1; t < 3; t++) {
-      this.getStorage(t);
+      this.getStorage(t)
     }
   }
 
@@ -42,10 +45,12 @@ class App extends Component {
       this.setState(stateObject);
     });
   }
-  // SOMEHOW GET THIS FUCKING URL OUTSIDE THIS FUNCTION WITHOUT USING AN ARRAY
+
   getStorage(data) {
-    firebase.storage().ref().child(`images/${data}.png`).getDownloadURL().then(function(url) {
-      console.log(url);
+    firebase.storage().ref().child(`images/${data}.png`).getDownloadURL().then((url) => {
+      this.setState(prevState => ({ 
+        URLs: [...prevState.URLs, url] 
+      }));
     });
   }
 
@@ -58,6 +63,10 @@ class App extends Component {
 
 
   render() {
+
+    let urlsMapped = this.state.URLs.map((result, i) => (
+      <img key={i} src={result} />
+    ))
 
     let scaleBtn = this.state.scales.map((result, i) => (
         <button key={i}>{result}</button>
@@ -111,7 +120,7 @@ class App extends Component {
     return (
       <div>
         <h1>Scales and Chords</h1>
-        <img src={this.state.images} alt='png'/>
+        {urlsMapped}
         <div className='btnContainer'>
           <div className='keyContainer'>{scaleKeysBtn}</div>
           <div className='keyContainer'>{chordKeysBtn}</div>
