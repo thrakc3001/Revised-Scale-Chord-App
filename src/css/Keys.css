@@ -1,0 +1,19 @@
+.keyContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 218px;
+  justify-content: center;
+  margin: 0 auto;
+  height: 128px;
+  padding-bottom: 5px;
+}
+
+.keyStyles {
+  width: 70px;
+  height: 30px;
+  font-size: 8px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
