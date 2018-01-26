@@ -12,7 +12,7 @@ class Buttons extends Component {
   render() {
 
     let scaleBtn = this.props.scales.map((result, i) => (
-        <button key={i}>{result}</button>
+        <button key={i} onClick={ () => (this.setState( {currentImg : this.props.URLs[i-1]} ))}>{result}</button>
       ))
     let aScales = []; let bbScales = []; let bScales = []; let cScales = []; let csScales = []; let dScales = []; 
     let ebScales = []; let eScales = []; let fScales = []; let fsScales = []; let gScales = []; let gsScales = [];
@@ -28,7 +28,7 @@ class Buttons extends Component {
     }
 
     let chordBtn = this.props.chords.map((result, i) => (
-      <button key={i} onClick={ () => (this.setState( {currentImg : this.props.URLs[i]} ))}>{result}</button>
+      <button key={i}>{result}</button>
     ))
     let aChords = []; let bbChords = []; let bChords = []; let cChords = []; let csChords = []; let dChords = []; 
     let ebChords = []; let eChords = []; let fChords = []; let fsChords = []; let gChords = []; let abChords = [];

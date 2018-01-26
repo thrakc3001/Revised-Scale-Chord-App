@@ -32,8 +32,15 @@ class App extends Component {
       this.getData(datas[s]);
     }
 
-    for (var t = 1; t < 3; t++) {
-      this.getStorage(t)
+    for (var t = 1; t < 7; t++) {
+      if (t < 10) {
+        this.getStorage('00' + t)
+      }
+      if (t >= 10 && t < 100) {
+        this.getStorage('0' + t)
+      }
+      if (t >= 100) {this.getStorage(t)
+      }
     }
   }
 
@@ -55,11 +62,15 @@ class App extends Component {
 
   render() {
 
+    let numArray = this.state.URLs;
+    numArray = numArray.sort();
+    console.log(numArray);
+
     return (
       <div>
         <h1>Scales and Chords</h1>
         <Keys scalekeys={this.state.scalekeys} chordkeys={this.state.chordkeys} 
-              scales={this.state.scales} chords={this.state.chords} URLs={this.state.URLs} />
+              scales={this.state.scales} chords={this.state.chords} URLs={numArray} />
       </div>
     );
   }
