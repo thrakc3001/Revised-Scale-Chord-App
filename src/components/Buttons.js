@@ -5,14 +5,28 @@ class Buttons extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentImg: ''
+      currentImg: '',
+      currentMp3: ''
     };
+  }
+
+  changeNotes(img, snd) {
+    this.setState({currentImg : img, currentMp3: snd});
+    setTimeout(function() {
+      let audioStuff = document.getElementById('audio');
+      audioStuff.play();
+    }, 50);
   }
 
   render() {
 
+    let imgArray = this.props.imgURLs;
+    imgArray = imgArray.sort();
+    let mp3Array = this.props.musURLs;
+    mp3Array = mp3Array.sort();
+
     let scaleBtn = this.props.scales.map((result, i) => (
-        <button key={i} onClick={ () => (this.setState( {currentImg : this.props.URLs[i - 1]} ))}>{result}</button>
+        <button key={i} onClick={ () => {this.changeNotes(imgArray[i-1], mp3Array[i-1])}}>{result}</button>
       ))
     let aScales = []; let bbScales = []; let bScales = []; let cScales = []; let csScales = []; let dScales = []; 
     let ebScales = []; let eScales = []; let fScales = []; let fsScales = []; let gScales = []; let gsScales = [];
@@ -28,7 +42,7 @@ class Buttons extends Component {
     }
 
     let chordBtn = this.props.chords.map((result, i) => (
-      <button key={i} onClick={ () => (this.setState( {currentImg : this.props.URLs[i+119]} ))}>{result}</button>
+      <button key={i} onClick={ () => {this.changeNotes(imgArray[i+119], mp3Array[i+119])}}>{result}</button>
     ))
     let aChords = []; let bbChords = []; let bChords = []; let cChords = []; let csChords = []; let dChords = []; 
     let ebChords = []; let eChords = []; let fChords = []; let fsChords = []; let gChords = []; let abChords = [];
@@ -57,6 +71,7 @@ class Buttons extends Component {
     return (
       <div>
         <img alt="png" src={this.state.currentImg} />
+        <audio id='audio' src={this.state.currentMp3} ></audio>
         {allSclBtns}
         {allChoBtns}
       </div>

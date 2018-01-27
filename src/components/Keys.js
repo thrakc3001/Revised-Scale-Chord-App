@@ -32,8 +32,8 @@ class Keys extends Component {
           <div className='keyContainer'>{scaleKeysBtn}</div>
           <div className='keyContainer'>{chordKeysBtn}</div>
         </div>
-        <Buttons scales={this.props.scales} chords={this.props.chords} URLs={this.props.URLs} currentMenu={this.state.currentMenu} 
-        		 scalekeys={this.props.scalekeys} chordkeys={this.props.chordkeys} />
+        <Buttons scales={this.props.scales} chords={this.props.chords} imgURLs={this.props.imgURLs} musURLs={this.props.musURLs} 
+        currentMenu={this.state.currentMenu} scalekeys={this.props.scalekeys} chordkeys={this.props.chordkeys} />
       </div>
     );
   }

@@ -21,7 +21,8 @@ class App extends Component {
       chords: [],
       scalekeys: [],
       chordkeys: [],
-      URLs: []
+      imgURLs: [],
+      mp3URLs: []
     };
   }
 
@@ -55,21 +56,22 @@ class App extends Component {
   getStorage(data) {
     firebase.storage().ref().child(`images/${data}.png`).getDownloadURL().then((url) => {
       this.setState(prevState => ({ 
-        URLs: [...prevState.URLs, url] 
+        imgURLs: [...prevState.imgURLs, url] 
+      }));
+    });
+    firebase.storage().ref().child(`mp3s/${data}.mp3`).getDownloadURL().then((url) => {
+      this.setState(prevState => ({ 
+        mp3URLs: [...prevState.mp3URLs, url] 
       }));
     });
   }
 
   render() {
-
-    let numArray = this.state.URLs;
-    numArray = numArray.sort();
-
     return (
       <div>
         <h1>Scales and Chords</h1>
-        <Keys scalekeys={this.state.scalekeys} chordkeys={this.state.chordkeys} 
-              scales={this.state.scales} chords={this.state.chords} URLs={numArray} />
+        <Keys scalekeys={this.state.scalekeys} chordkeys={this.state.chordkeys} scales={this.state.scales} 
+              chords={this.state.chords} musURLs={this.state.mp3URLs} imgURLs={this.state.imgURLs} />
       </div>
     );
   }
