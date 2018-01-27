@@ -32,7 +32,7 @@ class App extends Component {
       this.getData(datas[s]);
     }
 
-    for (var t = 1; t < 7; t++) {
+    for (var t = 1; t < 313; t++) {
       if (t < 10) {
         this.getStorage('00' + t)
       }
@@ -64,7 +64,6 @@ class App extends Component {
 
     let numArray = this.state.URLs;
     numArray = numArray.sort();
-    console.log(numArray);
 
     return (
       <div>

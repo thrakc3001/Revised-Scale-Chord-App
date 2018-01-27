@@ -27,7 +27,7 @@ class Keys extends Component {
     ))
 
     return (
-      <div>z
+      <div>
         <div className='btnContainer'>
           <div className='keyContainer'>{scaleKeysBtn}</div>
           <div className='keyContainer'>{chordKeysBtn}</div>
