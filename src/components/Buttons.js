@@ -76,10 +76,8 @@ class Buttons extends Component {
         </div>
         <h2>{this.state.currentType}</h2>
         <audio controls id='audio' src={this.state.currentMp3}></audio>
-        <div className='btnBox'>
-          {allSclBtns}
-          {allChoBtns}
-        </div>
+        <div className='sclBox'>{allSclBtns}</div>
+        <div className='choBox'>{allChoBtns}</div>
       </div>
     );
   }

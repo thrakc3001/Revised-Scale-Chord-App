@@ -3,19 +3,20 @@
     overflow: hidden;
     position: relative;
     margin: 0 auto;
+    display: block;
+    width: 1000px;
+    justify-content: center;
 }
 
 img {
 	margin: 0 auto;
 	display: block;
 	position: relative;
-	bottom: 40px;
 }
 
 h2 {
 	text-align: center;
 	position: relative;
-	bottom: 30px;
 }
 
 #audio {
@@ -24,114 +25,157 @@ h2 {
 	padding-bottom: 10px;
 }
 
-.btnBox {
-	display: flex;
-	position: relative;
+.sclBox, .choBox {
+	position: absolute;
+	margin: 0 auto;
+	width: 300px;
+	z-index: 1;
 }
 
-.btnBox button {
-	width: 130px;
+.sclBox button {
+	width: 133px;
+	height: 22px;
 	margin: 0 auto;
 }
 
-.A.Scales {
+.choBox button {
+	width: 113px;
+	height: 22px;
+	margin: 0 auto;
+}
+
+.A.Scales, .Bb.Scales, .B.Scales, .C.Scales, .C\#.Scales, .D.Scales, .Eb.Scales, .E.Scales, .F.Scales, .F\#.Scales, .G.Scales, .G\#.Scales {
 	flex-direction: column;
 	flex-wrap: wrap;
 	height: 120px;
 	width: 150px;
-	left: 104px;
-	top: 51px;
-	position: absolute;
+	position: relative;
+}
+
+.A.Chords, .Bb.Chords, .B.Chords, .C.Chords, .C\#.Chords, .D.Chords, .Eb.Chords, .E.Chords, .F.Chords, .F\#.Chords, .G.Chords, .Ab.Chords {
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: 95px;
+	width: 100px;
+	position: relative;
+}
+
+.A.Scales {
+	left: 274px;
+	top: 52px;
 }
 
 .Bb.Scales {
-
+	left: 388px;
+	top: 52px;
 }
 
 .B.Scales {
-
+	left: 346px;
+	top: 52px;
 }
 
 .C.Scales {
-
+	left: 460px;
+	top: 52px;
 }
 
 .C\#.Scales {
-
+	left: 274px;
+	top: 105px;
 }
 
 .D.Scales {
-
+	left: 388px;
+	top: 105px;
 }
 
 .Eb.Scales {
-
+	left: 346px;
+	top: 105px;
 }
 
 .E.Scales {
-
+	left: 460px;
+	top: 105px;
 }
 
 .F.Scales {
-
+	left: 274px;
+	top: 159px;
 }
 
 .F\#.Scales {
-
+	left: 388px;
+	top: 159px;
 }
 
 .G.Scales {
-
+	left: 346px;
+	top: 159px;
 }
 
 .G\#.Scales {
-
+	left: 460px;
+	top: 159px;
 }
 
 .A.Chords {
-
+	left: 274px;
+	top: 235px;
 }
 
 .Bb.Chords {
-
+	left: 274px;
+	top: 235px;
 }
 
 .B.Chords {
-
+	left: 274px;
+	top: 235px;
 }
 
 .C.Chords {
-
+	left: 274px;
+	top: 235px;
 }
 
 .C\#.Chords {
-
+	left: 274px;
+	top: 288px;
 }
 
 .D.Chords {
-
+	left: 274px;
+	top: 288px;
 }
 
 .Eb.Chords {
-
+	left: 274px;
+	top: 288px;
 }
 
 .E.Chords {
-
+	left: 274px;
+	top: 288px;
 }
 
 .F.Chords {
-
+	left: 274px;
+	top: 200px;
 }
 
 .F\#.Chords {
-
+	left: 274px;
+	top: 200px;
 }
 
 .G.Chords {
-
+	left: 274px;
+	top: 200px;
 }
 
 .Ab.Chords {
-
+	left: 274px;
+	top: 200px;
 }
