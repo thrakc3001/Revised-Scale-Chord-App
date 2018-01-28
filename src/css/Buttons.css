@@ -1,5 +1,47 @@
-.A.Scales {
+#imageContainer {
+    height: 265px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
 
+img {
+	margin: 0 auto;
+	display: block;
+	position: relative;
+	bottom: 40px;
+}
+
+h2 {
+	text-align: center;
+	position: relative;
+	bottom: 30px;
+}
+
+#audio {
+	margin: 0 auto;
+	display: block;
+	padding-bottom: 10px;
+}
+
+.btnBox {
+	display: flex;
+	position: relative;
+}
+
+.btnBox button {
+	width: 130px;
+	margin: 0 auto;
+}
+
+.A.Scales {
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: 120px;
+	width: 150px;
+	left: 104px;
+	top: 51px;
+	position: absolute;
 }
 
 .Bb.Scales {

@@ -26,7 +26,6 @@ class App extends Component {
     };
   }
 
-
   componentDidMount() {
     let datas = ['scales', 'chords', 'scalekeys', 'chordkeys'];
     for (var s = 0; s < datas.length; s++) {
@@ -44,7 +43,6 @@ class App extends Component {
       }
     }
   }
-
 
   getData(data) {
     firebase.database().ref().child(data).on('value', snapshot => {
@@ -70,8 +68,10 @@ class App extends Component {
     return (
       <div>
         <h1>Scales and Chords</h1>
-        <Keys scalekeys={this.state.scalekeys} chordkeys={this.state.chordkeys} scales={this.state.scales} 
-              chords={this.state.chords} musURLs={this.state.mp3URLs} imgURLs={this.state.imgURLs} />
+        <div className='main'>
+          <Keys scalekeys={this.state.scalekeys} chordkeys={this.state.chordkeys} scales={this.state.scales} 
+                chords={this.state.chords} musURLs={this.state.mp3URLs} imgURLs={this.state.imgURLs} />
+        </div>
       </div>
     );
   }

@@ -28,12 +28,13 @@ class Keys extends Component {
 
     return (
       <div>
+        <Buttons scales={this.props.scales} chords={this.props.chords} imgURLs={this.props.imgURLs} musURLs={this.props.musURLs} 
+        		 currentMenu={this.state.currentMenu} scalekeys={this.props.scalekeys} chordkeys={this.props.chordkeys} />
         <div className='btnContainer'>
           <div className='keyContainer'>{scaleKeysBtn}</div>
+          <br />
           <div className='keyContainer'>{chordKeysBtn}</div>
         </div>
-        <Buttons scales={this.props.scales} chords={this.props.chords} imgURLs={this.props.imgURLs} musURLs={this.props.musURLs} 
-        currentMenu={this.state.currentMenu} scalekeys={this.props.scalekeys} chordkeys={this.props.chordkeys} />
       </div>
     );
   }

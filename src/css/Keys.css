@@ -2,17 +2,17 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 218px;
+  width: 455px;
   justify-content: center;
   margin: 0 auto;
-  height: 128px;
+  height: 160px;
   padding-bottom: 5px;
 }
 
 .keyStyles {
-  width: 70px;
-  height: 30px;
-  font-size: 8px;
+  width: 110px;
+  height: 51px;
+  font-size: 18px;
   display: flex;
   justify-content: center;
   margin: 0 auto;
