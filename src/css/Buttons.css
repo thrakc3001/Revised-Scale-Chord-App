@@ -157,30 +157,30 @@ h2 {
     	bottom: 35px;
     }
 
-	.A.Scales { left: 152px; top: 38px; }
-	.Bb.Scales { left: 152px; top: 38px; }
-	.B.Scales { left: 152px; top: 38px; }
-	.C.Scales { left: 152px; top: 38px; }
-	.C\#.Scales { left: 152px; top: 78px; }
-	.D.Scales { left: 152px; top: 78px;}
-	.Eb.Scales { left: 152px; top: 78px; }
-	.E.Scales { left: 152px; top: 78px;}
-	.F.Scales { left: 152px; top: 118px; }
-	.F\#.Scales { left: 152px; top: 118px; }
-	.G.Scales { left: 152px; top: 118px; }
-	.G\#.Scales { left: 152px; top: 118px;}
+	.A.Scales { left: 152px; top: 18px; }
+	.Bb.Scales { left: 152px; top: 18px; }
+	.B.Scales { left: 152px; top: 18px; }
+	.C.Scales { left: 152px; top: 18px; }
+	.C\#.Scales { left: 152px; top: 58px; }
+	.D.Scales { left: 152px; top: 58px;}
+	.Eb.Scales { left: 152px; top: 58px; }
+	.E.Scales { left: 152px; top: 58px;}
+	.F.Scales { left: 152px; top: 98px; }
+	.F\#.Scales { left: 152px; top: 98px; }
+	.G.Scales { left: 152px; top: 98px; }
+	.G\#.Scales { left: 152px; top: 98px;}
 
 	.A.Chords, .Bb.Chords, .B.Chords, .C.Chords {
 		left: 152px;
-		top: 175px;
+		top: 155px;
 	}
 	.C\#.Chords, .D.Chords, .Eb.Chords, .E.Chords {
 		left: 152px;
-		top: 89px;
+		top: 69px;
 	}
 	.F.Chords, .F\#.Chords, .G.Chords, .Ab.Chords {
 		left: 152px;
-		top: 129px;
+		top: 109px;
 	}
 	.sclBox, .choBox {
 		position: absolute;
