@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black');
-@import url('https://fonts.googleapis.com/css?family=Tenor+Sans');
 
 body {
   background-color: #2D3142;
@@ -9,6 +8,7 @@ body {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 h1 {
