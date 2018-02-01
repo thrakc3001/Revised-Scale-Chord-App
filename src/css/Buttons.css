@@ -4,7 +4,7 @@
     position: relative;
     margin: 0 auto;
     display: block;
-    width: 1000px;
+    width: 660px;
     justify-content: center;
 }
 
@@ -12,43 +12,55 @@ img {
 	margin: 0 auto;
 	display: block;
 	position: relative;
+	bottom: 35px;
 }
 
 h2 {
 	text-align: center;
 	position: relative;
+    font-size: 35px;
+    color: white;
+    font-family: 'Archivo Black', sans-serif;
 }
 
 #audio {
 	margin: 0 auto;
 	display: block;
 	padding-bottom: 10px;
+	position: relative;
 }
 
 .sclBox, .choBox {
 	position: absolute;
 	margin: 0 auto;
-	width: 300px;
+	width: 20px;
 	z-index: 1;
 }
 
 .sclBox button {
-	width: 133px;
+	width: 169px;
 	height: 22px;
 	margin: 0 auto;
+    cursor: pointer;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 14px;
+    padding: 0px;
 }
 
 .choBox button {
 	width: 113px;
 	height: 22px;
 	margin: 0 auto;
+    cursor: pointer;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 14px;
 }
 
 .A.Scales, .Bb.Scales, .B.Scales, .C.Scales, .C\#.Scales, .D.Scales, .Eb.Scales, .E.Scales, .F.Scales, .F\#.Scales, .G.Scales, .G\#.Scales {
 	flex-direction: column;
 	flex-wrap: wrap;
 	height: 120px;
-	width: 150px;
+	width: 260px;
 	position: relative;
 }
 
@@ -60,122 +72,137 @@ h2 {
 	position: relative;
 }
 
-.A.Scales {
-	left: 274px;
-	top: 52px;
-}
+.A.Scales { left: 104px; top: 52px; }
+.Bb.Scales { left: 104px; top: 52px; }
+.B.Scales { left: 218px; top: 52px; }
+.C.Scales { left: 218px; top: 52px; }
+.C\#.Scales { left: 104px; top: 105px; }
+.D.Scales { left: 104px; top: 105px;}
+.Eb.Scales { left: 218px; top: 105px; }
+.E.Scales { left: 218px; top: 105px;}
+.F.Scales { left: 104px; top: 159px; }
+.F\#.Scales { left: 104px; top: 159px; }
+.G.Scales { left: 218px; top: 159px; }
+.G\#.Scales { left: 218px; top: 159px;}
 
-.Bb.Scales {
-	left: 388px;
-	top: 52px;
-}
-
-.B.Scales {
-	left: 346px;
-	top: 52px;
-}
-
-.C.Scales {
-	left: 460px;
-	top: 52px;
-}
-
-.C\#.Scales {
-	left: 274px;
-	top: 105px;
-}
-
-.D.Scales {
-	left: 388px;
-	top: 105px;
-}
-
-.Eb.Scales {
-	left: 346px;
-	top: 105px;
-}
-
-.E.Scales {
-	left: 460px;
-	top: 105px;
-}
-
-.F.Scales {
-	left: 274px;
-	top: 159px;
-}
-
-.F\#.Scales {
-	left: 388px;
-	top: 159px;
-}
-
-.G.Scales {
-	left: 346px;
-	top: 159px;
-}
-
-.G\#.Scales {
-	left: 460px;
-	top: 159px;
-}
-
-.A.Chords {
-	left: 274px;
+.A.Chords, .Bb.Chords, .B.Chords, .C.Chords {
+	left: 104px;
 	top: 235px;
 }
 
-.Bb.Chords {
-	left: 274px;
-	top: 235px;
+.C\#.Chords, .D.Chords, .Eb.Chords, .E.Chords {
+	left: 104px;
+	top: 147px;
 }
 
-.B.Chords {
-	left: 274px;
-	top: 235px;
-}
-
-.C.Chords {
-	left: 274px;
-	top: 235px;
-}
-
-.C\#.Chords {
-	left: 274px;
-	top: 288px;
-}
-
-.D.Chords {
-	left: 274px;
-	top: 288px;
-}
-
-.Eb.Chords {
-	left: 274px;
-	top: 288px;
-}
-
-.E.Chords {
-	left: 274px;
-	top: 288px;
-}
-
-.F.Chords {
-	left: 274px;
+.F.Chords, .F\#.Chords, .G.Chords, .Ab.Chords {
+	left: 104px;
 	top: 200px;
 }
 
-.F\#.Chords {
-	left: 274px;
-	top: 200px;
+@media only screen and (max-width: 1300px) {
+	#audio {
+		bottom: 25px;
+	}
+
+	h2 {
+		bottom: 18px;
+	}
+	.A.Scales { left: 99px; top: 42px; }
+	.Bb.Scales { left: 99px; top: 42px; }
+	.B.Scales { left: 222px; top: 42px; }
+	.C.Scales { left: 222px; top: 42px; }
+	.C\#.Scales { left: 99px; top: 105px; }
+	.D.Scales { left: 99px; top: 105px;}
+	.Eb.Scales { left: 222px; top: 105px; }
+	.E.Scales { left: 222px; top: 105px;}
+	.F.Scales { left: 99px; top: 169px; }
+	.F\#.Scales { left: 99px; top: 169px; }
+	.G.Scales { left: 222px; top: 169px; }
+	.G\#.Scales { left: 222px; top: 169px;}
+
+	.A.Chords, .Bb.Chords, .B.Chords, .C.Chords {
+		left: 100px;
+		top: 250px;
+	}
+	.C\#.Chords, .D.Chords, .Eb.Chords, .E.Chords {
+		left: 100px;
+		top: 163px;
+	}
+	.F.Chords, .F\#.Chords, .G.Chords, .Ab.Chords {
+		left: 100px;
+		top: 227px;
+	}
+	.choBox button {
+		width: 115px;
+	}
 }
 
-.G.Chords {
-	left: 274px;
-	top: 200px;
-}
+@media only screen and (max-width: 800px) {
+    #imageContainer {
+    	height: 190px;
+    }
 
-.Ab.Chords {
-	left: 274px;
-	top: 200px;
+    img {
+    	width: 350px;
+    	bottom: 50px;
+    }
+
+    h2 {
+    	font-size: 22px;
+    	bottom: 20px;
+    }
+
+    #audio {
+    	bottom: 35px;
+    }
+
+	.A.Scales { left: 152px; top: 38px; }
+	.Bb.Scales { left: 152px; top: 38px; }
+	.B.Scales { left: 152px; top: 38px; }
+	.C.Scales { left: 152px; top: 38px; }
+	.C\#.Scales { left: 152px; top: 78px; }
+	.D.Scales { left: 152px; top: 78px;}
+	.Eb.Scales { left: 152px; top: 78px; }
+	.E.Scales { left: 152px; top: 78px;}
+	.F.Scales { left: 152px; top: 118px; }
+	.F\#.Scales { left: 152px; top: 118px; }
+	.G.Scales { left: 152px; top: 118px; }
+	.G\#.Scales { left: 152px; top: 118px;}
+
+	.A.Chords, .Bb.Chords, .B.Chords, .C.Chords {
+		left: 152px;
+		top: 175px;
+	}
+	.C\#.Chords, .D.Chords, .Eb.Chords, .E.Chords {
+		left: 152px;
+		top: 89px;
+	}
+	.F.Chords, .F\#.Chords, .G.Chords, .Ab.Chords {
+		left: 152px;
+		top: 129px;
+	}
+	.sclBox, .choBox {
+		position: absolute;
+		margin: 0 auto;
+		width: 25px;
+		z-index: 1;
+	}
+	.sclBox button {
+		width: 178px;
+		height: 22px;
+		margin: 0 auto;
+	    cursor: pointer;
+	    font-family: 'Tenor Sans', sans-serif;
+	    font-size: 14px;
+	    padding: 0px;
+	}
+	.choBox button {
+		width: 89px;
+		height: 22px;
+		margin: 0 auto;
+	    cursor: pointer;
+	    font-family: 'Tenor Sans', sans-serif;
+	    font-size: 14px;
+	}
 }

@@ -68,7 +68,6 @@ class App extends Component {
     return (
       <div>
         <h1>Scales and Chords</h1>
-
         <div className='main'>
           <Keys scalekeys={this.state.scalekeys} chordkeys={this.state.chordkeys} scales={this.state.scales} 
                 chords={this.state.chords} musURLs={this.state.mp3URLs} imgURLs={this.state.imgURLs} />

@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black');
+@import url('https://fonts.googleapis.com/css?family=Tenor+Sans');
+
+body {
+  background-color: #2D3142;
+}
+
 .main {
   display: flex;
   justify-content: center;
@@ -9,4 +16,19 @@ h1 {
   font-size: 60px;
   margin: 0 auto;
   position: relative;
+  font-size: 60px;
+  color: white;
+  font-family: 'Archivo Black', sans-serif;
+}
+
+@media only screen and (max-width: 1300px) {
+    h1 {
+      font-size: 52px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    h1 {
+      font-size: 35px;
+    }
 }

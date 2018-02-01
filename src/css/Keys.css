@@ -1,20 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Tenor+Sans');
+
 .keyContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 455px;
-  justify-content: center;
-  margin: 0 auto;
-  height: 160px;
-  padding-bottom: 5px;
-  position: relative;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 455px;
+	justify-content: center;
+	margin: 0 auto;
+	height: 160px;
+	padding-bottom: 5px;
+	position: relative;
+}
+	
+.keyStyles {
+	width: 110px;
+	height: 51px;
+	font-size: 17px;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+	background-color: #C05746;
+	color: white;
+	font-family: 'Tenor Sans', sans-serif;
+	user-select: none;
+	cursor: pointer;
 }
 
-.keyStyles {
-  width: 110px;
-  height: 51px;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
+@media only screen and (max-width: 1300px) {
+	.keyContainer {
+		width: 465px;
+		height: 190px;
+		padding: 0px;
+		bottom: 20px;
+	}
+	.keyStyles {
+		width: 112px;
+		height: 62px;
+		font-size: 15px;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.keyContainer {
+		width: 360px;
+		height: 120px;
+		padding: 0px;
+	}
+	.keyStyles {
+		width: 86px;
+		height: 36px;
+		padding: 0px;
+		font-size: 15px;
+	}
 }
