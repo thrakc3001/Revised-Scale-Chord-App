@@ -27,4 +27,4 @@ This is an app for people learning music theory and ear training. It displays co
 
 ## Screenshots
 
-![Home Page](https://i.imgur.com/0ka4LS2.png)
+![Home Page](https://i.imgur.com/hxRnThH.png)
