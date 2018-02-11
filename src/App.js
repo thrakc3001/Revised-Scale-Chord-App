@@ -12,6 +12,11 @@ let config = {
     messagingSenderId: "1047207785286"
   };
 
+let http = require('http');
+setInterval(function() {
+    http.get('http://scales-and-chords.herokuapp.com');
+}, 200000);
+
 firebase.initializeApp(config);
 class App extends Component {
   constructor(props) {
